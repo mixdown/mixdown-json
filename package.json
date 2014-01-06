@@ -1,6 +1,6 @@
 {
   "name": "mixdown-json",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Json response plugin for mixdown.js",
   "main": "index.js",
   "scripts": {
