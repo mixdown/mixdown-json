@@ -1,0 +1,32 @@
+{
+  "name": "mixdown-json",
+  "version": "0.0.0",
+  "description": "Json response plugin for mixdown.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec -u tdd test/tests/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mixdown/mixdown-json.git"
+  },
+  "keywords": [
+    "mixdown",
+    "json",
+    "plugin"
+  ],
+  "author": "Tommy Messbauer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mixdown/mixdown-json/issues"
+  },
+  "homepage": "https://github.com/mixdown/mixdown-json",
+  "dependencies": {
+    "lodash": "~2.4.1"
+  },
+  "devDependencies": {
+    "mocha": "~1.16.2",
+    "pluggo": "0.0.2",
+    "hammock": "~0.1.4"
+  }
+}
