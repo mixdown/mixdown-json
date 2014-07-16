@@ -1,15 +1,17 @@
 var assert = require('assert');
-var Pluggo = require('pluggo');
+var App = require('mixdown-app').App;
+
+
 var Response = require('hammock').Response;
 var Request = require('hammock').Request;
 var JsonPlugin = require('../../index.js');
 
 suite('Test error plugin', function() {
-  var app = {
-    plugins: new Pluggo()
+  var app = new App();
+  var data = {
+    tupac: 'thug life',
+    biggie: 'hyptonize'
   };
-
-  var data = { tupac: 'thug life', biggie: 'hyptonize' };
   var gold = JSON.stringify(data);
 
   // override the default namespace and make sure this still works.
@@ -18,11 +20,13 @@ suite('Test error plugin', function() {
 
   setup(function(done) {
 
-    app.plugins.use(new JsonPlugin(namespace), {
+    var json_plugin = new JsonPlugin({
       jsonpEnabled: true
     });
 
-    app.plugins.init(done);
+    app.use(json_plugin, 'json_plugin');
+    app.setup(done);
+    app.init();
   });
 
   test('Test json', function(done) {
@@ -36,7 +40,7 @@ suite('Test error plugin', function() {
       done();
     });
 
-    app.plugins[namespace](data, res);
+    app.json_plugin.render(data, res);
 
   });
 
@@ -55,9 +59,9 @@ suite('Test error plugin', function() {
       done();
     });
 
-    app.plugins[namespace](data, res, {}, req);
+    app.json_plugin.render(data, res, {}, req);
   });
-  
+
   test('Test callback', function(done) {
     var cb = 'omgcatz';
     var res = new Response();
@@ -73,7 +77,7 @@ suite('Test error plugin', function() {
       done();
     });
 
-    app.plugins[namespace](data, res, {}, req);
+    app.json_plugin.render(data, res, {}, req);
   });
-  
+
 });
