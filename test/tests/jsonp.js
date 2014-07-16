@@ -40,7 +40,7 @@ suite('Test error plugin', function() {
       done();
     });
 
-    app.json_plugin.render(data, res);
+    app.json_plugin.send(data, res);
 
   });
 
@@ -59,7 +59,7 @@ suite('Test error plugin', function() {
       done();
     });
 
-    app.json_plugin.render(data, res, {}, req);
+    app.json_plugin.send(data, res, {}, req);
   });
 
   test('Test callback', function(done) {
@@ -77,7 +77,7 @@ suite('Test error plugin', function() {
       done();
     });
 
-    app.json_plugin.render(data, res, {}, req);
+    app.json_plugin.send(data, res, {}, req);
   });
 
 });

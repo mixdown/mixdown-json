@@ -15,7 +15,7 @@ module.exports = function(httpContext) {
   var res = httpContext.response;
   var app = httpContext.app;
 
-  app.plugins.json({ hip: 'hop '}, res, {}, req);
+  app.plugins.json.send({ hip: 'hop '}, res, {}, req);
 };
 
 ```
@@ -26,7 +26,7 @@ module.exports = function(httpContext) {
 var app = mixdown.apps['foo'];
 
 expressApp.get('/foo/bar', function(req, res) {
-  app.plugins.json({ hip: 'hop '}, res, {}, req);
+  app.plugins.json.send({ hip: 'hop '}, res, {}, req);
 });
 
 ```

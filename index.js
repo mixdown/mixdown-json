@@ -13,7 +13,7 @@ var JsonPlugin = BasePlugin.extend({
    * @param data {Object} Data to pass to the rendering view
    * @param data {Object} Keys/values for headers (This action will set the Content_Type: 'application/json' automatically)
    **/
-  render: function(data, res, headers, req) {
+  send: function(data, res, headers, req) {
     var self = this;
     var str = JSON.stringify(data || {});
 
