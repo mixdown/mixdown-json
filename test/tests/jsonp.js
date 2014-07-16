@@ -20,11 +20,11 @@ suite('Test error plugin', function() {
 
   setup(function(done) {
 
-    var documents_plugin = new JsonPlugin({
+    var json_plugin = new JsonPlugin({
       jsonpEnabled: true
     });
 
-    app.use(documents_plugin, 'json_plugin');
+    app.use(json_plugin, 'json_plugin');
     app.setup(done);
     app.init();
   });
