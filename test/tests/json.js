@@ -53,6 +53,7 @@ suite('Test error plugin', function() {
       var body = res.buffer.join('');
 
       assert.equal(res.statusCode, 200, 'Should return 200 status');
+      assert.equal(res.headers['content-type'], 'application/json', 'Should return json content-type header');
       assert.equal(body, gold, 'Response should return correct json content.');
       done();
     });
